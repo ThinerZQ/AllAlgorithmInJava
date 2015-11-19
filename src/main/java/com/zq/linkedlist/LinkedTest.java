@@ -1,4 +1,4 @@
-package linkedlist;
+package com.zq.linkedlist;
 
 /**
  * Created by zhengshouzi on 2015/10/1.

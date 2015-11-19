@@ -1,4 +1,4 @@
-package linkedlist;
+package com.zq.linkedlist;
 
 import java.util.Arrays;
 
@@ -27,7 +27,7 @@ public class QueueTest {
 
         System.out.println("------------------------arrayCycleQueue-------------------------------------");
 
-        queue = new ArrayCycleQueue<>();
+        queue = new ArrayCycleQueue<Integer>();
 
         queue.enQueue(32);
         queue.enQueue(43);
@@ -85,7 +85,7 @@ class ArrayLinerQueue<T> implements Queue<T> {
     private int tail = 0;
     private Object[] data = new Object[4];
 
-    @Override
+
     public boolean enQueue(T k) {
         // 判断是否需要进行数组扩容
         if (tail >= data.length) {
@@ -110,7 +110,7 @@ class ArrayLinerQueue<T> implements Queue<T> {
         data = temp;
     }
 
-    @Override
+
     public T deQueue() {
         if (size == 0) {
             return null;
@@ -120,12 +120,12 @@ class ArrayLinerQueue<T> implements Queue<T> {
         return (T) data[head++];
     }
 
-    @Override
+
     public boolean isEmpty() {
         return size == 0;
     }
 
-    @Override
+
     public void clear() {
         // 将数组中的数据置为null, 方便GC进行回收
         for (int i = 0; i < size; i++) {
@@ -136,7 +136,7 @@ class ArrayLinerQueue<T> implements Queue<T> {
         tail = 0;
     }
 
-    @Override
+
     public int length() {
         return size;
     }
@@ -160,7 +160,7 @@ class ArrayCycleQueue<T> implements Queue<T> {
     private int tail = 0;
     private Object[] data = new Object[4];
 
-    @Override
+
     public boolean enQueue(T k) {
         // 判断是否需要进行数组扩容
         if (head == tail && head != 0) {
@@ -191,7 +191,7 @@ class ArrayCycleQueue<T> implements Queue<T> {
         data = temp;
     }
 
-    @Override
+
     public T deQueue() {
         if (size == 0) {
             return null;
@@ -201,12 +201,12 @@ class ArrayCycleQueue<T> implements Queue<T> {
         return (T) data[head++];
     }
 
-    @Override
+
     public boolean isEmpty() {
         return size == 0;
     }
 
-    @Override
+
     public void clear() {
         // 将数组中的数据置为null, 方便GC进行回收
         for (int i = 0; i < size; i++) {
@@ -217,12 +217,12 @@ class ArrayCycleQueue<T> implements Queue<T> {
         tail = 0;
     }
 
-    @Override
+
     public int length() {
         return size;
     }
 
-    @Override
+
     public String toString() {
         return "ArrayQueue{" +
                 "size=" + size +
@@ -240,7 +240,7 @@ class LinkedListQueue<T> implements Queue<T> {
     private QueueNode head = null;
     private QueueNode tail = null;
 
-    @Override
+
     public boolean enQueue(T k) {
 
         System.out.println("enQueue: " + k);
@@ -258,7 +258,7 @@ class LinkedListQueue<T> implements Queue<T> {
         return true;
     }
 
-    @Override
+
     public T deQueue() {
         if (size == 0) {
             return null;
@@ -270,24 +270,24 @@ class LinkedListQueue<T> implements Queue<T> {
         return tempdata;
     }
 
-    @Override
+
     public boolean isEmpty() {
         return size == 0;
     }
 
-    @Override
+
     public void clear() {
         size = 0;
         head = null;
         tail = null;
     }
 
-    @Override
+
     public int length() {
         return size;
     }
 
-    @Override
+
     public String toString() {
 
         StringBuilder sb = new StringBuilder();

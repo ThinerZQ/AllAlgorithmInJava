@@ -58,6 +58,7 @@ class RedBlackTree {
             inorderTravral(root.getRight());
         }
     }
+
     /**
      * 前序遍历二叉搜索树，结果是顺序的
      *
@@ -74,6 +75,7 @@ class RedBlackTree {
             preorderTravral(root.getRight());
         }
     }
+
     /**
      * 后序遍历二叉搜索树，结果是顺序的
      *
@@ -96,6 +98,7 @@ class RedBlackTree {
      * 将x节点向左旋转，并不会改变节点值的数据大小关系，
      * 左旋和右旋很简单，不需要考虑颜色的变化，
      * 只是将节点断开，旋转，再连上。知道断开和连接的先后顺序就比较好理解了。
+     *
      * @param x 需要旋转的节点
      */
     public void left_rotate(RedBlackTreeNode x) {
@@ -125,10 +128,12 @@ class RedBlackTree {
         //设置x的父亲为y
         x.setParent(y);
     }
+
     /**
      * 将x节点向右旋转，并不会改变节点值的数据大小关系，
      * 左旋和右旋很简单，不需要考虑颜色的变化，
      * 只是将节点断开，旋转，再连上。知道断开和连接的先后顺序就比较好理解了。
+     *
      * @param x 需要旋转的节点
      */
     public void right_rotate(RedBlackTreeNode x) {
@@ -161,6 +166,7 @@ class RedBlackTree {
 
     /**
      * 插入函数，用来构造一个插入节点。
+     *
      * @param k 插入的数据值
      */
     public void insert(int k) {
@@ -177,6 +183,7 @@ class RedBlackTree {
 
     /**
      * 用于红黑二叉树的插入方法
+     *
      * @param z 插入的节点对象
      */
     public void rb_insert(RedBlackTreeNode z) {
@@ -184,14 +191,14 @@ class RedBlackTree {
         RedBlackTreeNode y = this.NIL;
         //x是，根节点，不断比较数据值，直到直到带插入的位置
         RedBlackTreeNode x = this.getRoot();
-            while (x != this.NIL) {
-                y = x;
-                if (z.getData() < x.getData()) {
-                    x = x.getLeft();
-                } else {
-                    x = x.getRight();
-                }
+        while (x != this.NIL) {
+            y = x;
+            if (z.getData() < x.getData()) {
+                x = x.getLeft();
+            } else {
+                x = x.getRight();
             }
+        }
         //将z插入到y后面
         z.setParent(y);
         if (y == NIL) {
@@ -207,14 +214,15 @@ class RedBlackTree {
         //插入节点可能破坏了红黑树性质，所以调用修补方法
         rb_insert_fixup(z);
         count++;
-        System.out.println("insert："+z.getData());
+        System.out.println("insert：" + z.getData());
     }
 
     /**
-     *  红黑树插入修补方法，主要有三种情况需要修补
-     *  情况1：z的叔叔节点y是红色的
-     *  情况2：z的叔叔节点y是黑色的，且z是一个右孩子
-     *  情况3：z的叔叔节点y是黑色的，且z是一个左孩子
+     * 红黑树插入修补方法，主要有三种情况需要修补
+     * 情况1：z的叔叔节点y是红色的
+     * 情况2：z的叔叔节点y是黑色的，且z是一个右孩子
+     * 情况3：z的叔叔节点y是黑色的，且z是一个左孩子
+     *
      * @param z 引起了性质变化的节点z
      */
     public void rb_insert_fixup(RedBlackTreeNode z) {
@@ -371,6 +379,7 @@ class RedBlackTreeNode {
  */
 enum TreeColor {
     Red("red"), Black("black");
+
     TreeColor(String string) {
     }
 }
