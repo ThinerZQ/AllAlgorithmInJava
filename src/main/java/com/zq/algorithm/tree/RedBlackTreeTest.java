@@ -1,14 +1,56 @@
-
 package com.zq.algorithm.tree;
 
-import java.util.Stack;
-
 /**
- * Created by zhengshouzi on 2015/11/18.
+ * Created by zhengshouzi on 2015/11/20.
  */
+public class RedBlackTreeTest {
+    public static void main(String[] args) {
+        int[] a= {3,6,9,100,1,45,23,19,20,10,8,7,110};
+        RedBlackTree redBlackTree = new RedBlackTree();
+        for (int i=0;i<a.length;i++){
+            redBlackTree.insert(a[i]);
+        }
 
+        System.out.println();
+        System.out.println("");
+        redBlackTree.inorderTravral(redBlackTree.getRoot());
+        System.out.println();
+        redBlackTree.preorderTravral(redBlackTree.getRoot());
+        System.out.println();
+        redBlackTree.postorderTravral(redBlackTree.getRoot());
 
-public class RedBlackTree {
+        redBlackTree.delete(6);
+        System.out.println("删除6之后");
+        System.out.println();
+        redBlackTree.inorderTravral(redBlackTree.getRoot());
+        System.out.println();
+        redBlackTree.preorderTravral(redBlackTree.getRoot());
+        System.out.println();
+        redBlackTree.postorderTravral(redBlackTree.getRoot());
+
+        redBlackTree.delete(100);
+
+        System.out.println("删除100之后");
+        System.out.println();
+        redBlackTree.inorderTravral(redBlackTree.getRoot());
+        System.out.println();
+        redBlackTree.preorderTravral(redBlackTree.getRoot());
+        System.out.println();
+        redBlackTree.postorderTravral(redBlackTree.getRoot());
+
+        redBlackTree.delete(20);
+
+        System.out.println("删除20之后");
+        System.out.println();
+        redBlackTree.inorderTravral(redBlackTree.getRoot());
+        System.out.println();
+        redBlackTree.preorderTravral(redBlackTree.getRoot());
+        System.out.println();
+        redBlackTree.postorderTravral(redBlackTree.getRoot());
+    }
+}
+
+class RedBlackTree {
 
     //初始时候根节点是哨兵节点
     private RedBlackTreeNode root = NIL;
@@ -289,11 +331,11 @@ public class RedBlackTree {
     }
 
     /**
-     * 互换两个元素，用于删除操作过程
+     * 将一个元素移动到另外一个元素的位置上，用于删除操作过程
      * 这个过程断开了原来的deleted节点和父亲的关系，将replace和deleted的父亲设置成了父子关系
-     * @param root
-     * @param deleted
-     * @param replace
+     * @param root 树根节点
+     * @param deleted 被删除的元素
+     * @param replace 用来移动到被删除元素位置上的元素
      */
     public void rb_transplant(RedBlackTreeNode root,RedBlackTreeNode deleted,RedBlackTreeNode replace){
 

@@ -6,7 +6,7 @@ import org.junit.Test;
 /**
  * Created by zhengshouzi on 2015/11/23.
  */
-public class RedBlackTreeTest {
+public class RedBlackTreeTests {
     RedBlackTree redBlackTree = new RedBlackTree();
 
     @Before
