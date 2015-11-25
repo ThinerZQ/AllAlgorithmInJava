@@ -12,6 +12,7 @@ import java.util.Random;
 public class SteelBarTest {
     SteelBar steelBar =null;
     int[] q = {0,1,5,8,9,10,17,17,20,24,30};
+
     @Before
     public void init(){
         steelBar = new SteelBar();
@@ -25,17 +26,18 @@ public class SteelBarTest {
     }
     @Test
      public void testMemoTopToDown(){
-        int[] q = {0,1,5,8,9,10,17,17,20,24,30};
-
         int max = steelBar.memoized_cut_rod(q, 4);
         Assert.assertEquals(10, max);
     }
     @Test
     public void testDownToTop(){
-        int[] q = {0,1,5,8,9,10,17,17,20,24,30};
 
-        int max = steelBar.bottomUpCutRod(q,4);
+        int max = steelBar.bottomUpCutRod(q, 4);
         Assert.assertEquals(10, max);
+    }
+    @Test
+    public void testPrintSolution(){
+       steelBar.print_cut_rod_solution(q,8);
     }
 
 }
