@@ -49,6 +49,32 @@ public class Backpack01 {
             return max(  money[n-1] + backpack_01(widget,money,capacity-widget[n-1],n-1) , backpack_01(widget,money,capacity,n-1));
         }
     }
+    /**
+     *
+     *      使用动态规划的的方法
+     * @param widget
+     * @param money
+     * @param capacity
+     * @param n
+     * @return          返回  前 n 个物品在容量为capacity时，能得到的最大价值
+     */
+    public static int backpack_01_dnamicprogrammin(int[] widget,int[] money,int capacity,int n){
+
+        int[][] d = new int[n+1][capacity+1];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < capacity; j++) {
+                if (i ==0 || j ==0 ){    //第0个物品不用放入到任何背包，容量为0的背包也装不下任何物品
+                    d[i][j] =0;
+                }else if ( widget[i-1]< j ){  //   第 i-1 个物品的重量，放入到容量为 j 的背包中
+
+                }else{
+                //TODO:
+                }
+            }
+        }
+
+            return 0;
+    }
     public static int max(int a,int b){
         return a>b?a:b;
     }
