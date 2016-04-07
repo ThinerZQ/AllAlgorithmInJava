@@ -1,7 +1,11 @@
 package com.zq.algorithm.tree;
 
+
+
 import org.junit.Before;
 import org.junit.Test;
+
+import static com.sun.xml.internal.ws.dump.LoggingDumpTube.Position.Before;
 
 /**
  * Created by zhengshouzi on 2015/11/23.
@@ -9,7 +13,7 @@ import org.junit.Test;
 public class RedBlackTreeTests {
     RedBlackTree redBlackTree = new RedBlackTree();
 
-    @Before
+    @org.junit.Before
     public void init(){
         int[] a= {3,6,9,100,1,45,23,19,20,10,8,7,110};
         for (int i=0;i<a.length;i++){
